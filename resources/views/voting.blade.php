@@ -23,28 +23,28 @@
 @section('content')
     <div class="form-container">
         <div class="form-title">Форма 1</div>
-        <form action="/submit-form1" method="POST">
+        <form action="{{route('submit-form1')}}" method="POST">
             @csrf
             <label for="option1">Выберите вариант:</label>
-            <select name="option1" id="option1">
-                <option value="option1_1">Вариант 1</option>
-                <option value="option1_2">Вариант 2</option>
-                <option value="option1_3">Вариант 3</option>
-            </select>
+                <select name="option1">
+                    @foreach($participants as $participant)
+                        <option value="{{ $participant->id }}">{{ $participant->name }}</option>
+                    @endforeach
+                </select>
             <button type="submit">Отправить</button>
         </form>
     </div>
 
     <div class="form-container">
         <div class="form-title">Форма 2</div>
-        <form action="/submit-form2" method="POST">
+        <form action="{{route('submit-form2')}}" method="POST">
             @csrf
             <label for="option2">Выберите вариант:</label>
-            <select name="option2" id="option2">
-                <option value="option2_1">Вариант 1</option>
-                <option value="option2_2">Вариант 2</option>
-                <option value="option2_3">Вариант 3</option>
-            </select>
+                <select name="option2">
+                    @foreach($participantskpop as $participantkpop)
+                        <option value="{{ $participantkpop->id }}">{{ $participantkpop->name }}</option>
+                    @endforeach
+                </select>
             <button type="submit">Отправить</button>
         </form>
     </div>

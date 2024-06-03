@@ -122,7 +122,11 @@
 
 <body>
     <h1 class="header">@yield('header')</h1>
-
+    @if (session()->has('success'))
+        <div>
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="menu-container">
         <button class="menu-button">Меню</button>
         <div class="menu-items">
