@@ -28,6 +28,26 @@
             max-width: 40vw;
         }
 
+        .h2-titles {
+            text-shadow:
+            -2px -2px 0 #ffffff,
+            2px -2px 0 #ffffff,
+            -2px 2px 0 #ffffff,
+            2px 2px 0 #ffffff,
+            -2px 0 0 #ffffff,
+            2px 0 0 #ffffff,
+            0 -2px 0 #ffffff,
+            0 2px 0 #ffffff,
+            -3px -3px 0 #ffffff,
+            3px -3px 0 #ffffff,
+            -3px 3px 0 #ffffff,
+            3px 3px 0 #ffffff,
+            -3px 0 0 #ffffff,
+            3px 0 0 #ffffff,
+            0 -3px 0 #ffffff,
+            0 3px 0 #ffffff;
+        }
+
         @media (orientation: portrait) {
 
             .content-container{
@@ -48,6 +68,38 @@
             .responsive-image {
                 max-width: 80vw;
             }
+
+            h1 {
+                font-size: 250%;
+            }
+
+            h2 {
+                font-size: 250%;
+            }
+
+            h3 {
+                font-size: 250%;
+            }
+
+            h4 {
+                font-size: 250%;
+            }
+
+            a {
+                font-size: 250%;
+            }
+
+            button {
+                font-size: 200%;
+            }
+
+            .header-container{
+                display: grid;
+                grid-template-areas:
+                'button text' ;
+                grid-template-columns: 15% 85%;
+                align-items: center;
+            }
         }
     </style>
 @endsection
@@ -58,12 +110,12 @@
 
 @section('content')
     <div class="content-container">
-        <div style="text-align: center; background-color: rgb(229, 251, 251); grid-area: header;">
+        <div style="text-align: center; background-color: rgb(229, 251, 251); grid-area: header; border-radius: 25px; padding: 5px;">
             <h3>На цій сторінці ви можете ознайомитись з досьє наших учасників</h3>
         </div>
 
         <div style="grid-area: cosplay;">
-            <h3>Косплей</h3>
+            <h2 class="h2-titles">Косплей</h2>
         </div>
 
         <div class="container-participant" style="grid-area: participant1;">
@@ -77,7 +129,7 @@
         </div>
 
         <div style="grid-area: kpop;">
-            <h3>кпоп</h3>
+            <h2 class="h2-titles">кпоп</h>
         </div>
 
         <div class="container-participant" style="grid-area: participantkpop1;">

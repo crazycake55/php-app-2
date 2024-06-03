@@ -11,7 +11,17 @@
             margin: 12px;
             text-align: center;
             padding: 8px;
+            grid-area: text;
         }
+
+        .header-container{
+            display: grid;
+            grid-template-areas:
+            'button text' ;
+            grid-template-columns: 7% 93%;
+            align-items: center;
+        }
+
         .container-main{
             /* background-color: rgb(229, 251, 251); */
             border: 4px solid #00ddc0;
@@ -39,6 +49,7 @@
 
         .menu-container {
             position: relative;
+            grid-area: 'button';
         }
 
         .menu-button {
@@ -92,53 +103,56 @@
             cursor: pointer;
         }
 
+        .fullscreen-message {
+            display: none;
+        }
+
         @media (orientation: portrait) {
-            h1 {
-                font-size: 250%;
-            }
-
-            h2 {
-                font-size: 250%;
-            }
-
-            h3 {
-                font-size: 250%;
-            }
-
-            h4 {
-                font-size: 250%;
-            }
-
-            a {
-                font-size: 250%;
-            }
-
-            button {
-                font-size: 250%;
+            .fullscreen-message {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                color: white;
+                font-size: 3rem;
+                text-align: center;
+                z-index: 1000;
             }
         }
     </style>
 </head>
 
 <body>
-    <h1 class="header">@yield('header')</h1>
+    <div class="fullscreen-message">
+        Поверните устройство в альбомную ориентацию для продолжения.
+    </div>
+    <div class="header-container">
+        <div class="menu-container">
+            <button class="menu-button">Меню</button>
+            <div class="menu-items">
+                <button class="close-button">✖</button>
+                <nav>
+                    <ul>
+                        <li><a href="{{ route('main') }}">Головна</a></li>
+                        <li><a href="{{ route('voting') }}">Голосування</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <h1 class="header">@yield('header')</h1>
+    </div>
+
     @if (session()->has('success'))
         <div>
             {{ session('success') }}
         </div>
     @endif
-    <div class="menu-container">
-        <button class="menu-button">Меню</button>
-        <div class="menu-items">
-            <button class="close-button">✖</button>
-            <nav>
-                <ul>
-                    <li><a href="{{ route('main') }}">Головна</a></li>
-                    <li><a href="{{ route('voting') }}">Голосування</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

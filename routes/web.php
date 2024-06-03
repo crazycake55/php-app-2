@@ -24,7 +24,7 @@ Route::post('/submit-form1', function (Request $request) {
         $participant->save();
     }
 
-    return redirect('/voting')->with('success', 'Заебись, отправили!');
+    return redirect('/voting')->with('success', 'Ваш голос успішно зараховано!');
 })->name('submit-form1');
 
 Route::post('/submit-form2', function (Request $request) {
@@ -36,5 +36,5 @@ Route::post('/submit-form2', function (Request $request) {
         $participant->save();
     }
 
-    return redirect('/voting')->with('success', 'Заебись, отправили!');
+    return redirect('/voting')->with('success', 'Ваш голос успішно зараховано!');
 })->name('submit-form2');
