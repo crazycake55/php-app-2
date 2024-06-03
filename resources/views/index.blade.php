@@ -16,6 +16,7 @@
                 'header header'
                 'cosplay cosplay'
                 'participant1 participant2'
+                'participant3 empty'
                 'kpop kpop'
                 'participantkpop1 participantkpop2';
             grid-template-columns: 1fr 1fr;
@@ -57,6 +58,7 @@
                     'cosplay'
                     'participant1'
                     'participant2'
+                    'participant3'
                     'kpop'
                     'participantkpop1'
                     'participantkpop2';
@@ -119,7 +121,7 @@
         </div>
 
         <div class="container-participant" style="grid-area: participant1;">
-            <h4>1. Яйца болят</h4>
+            <h4>1. Учасник1</h4>
             <img class='responsive-image' src="{{ asset('img/pic.jpg') }}">
         </div>
 
@@ -128,12 +130,17 @@
             <img class='responsive-image' src="{{ asset('img/pic.jpg') }}">
         </div>
 
+        <div class="container-participant" style="grid-area: participant3;">
+            <h4>3. Учасник3</h4>
+            <img class='responsive-image' src="{{ asset('img/pic.jpg') }}">
+        </div>
+
         <div style="grid-area: kpop;">
-            <h2 class="h2-titles">кпоп</h>
+            <h2 class="h2-titles">Кавер-денс</h>
         </div>
 
         <div class="container-participant" style="grid-area: participantkpop1;">
-            <h4>1. Яйца болят</h4>
+            <h4>1. Команда1</h4>
             <img class='responsive-image' src="{{ asset('img/pic.jpg') }}">
         </div>
 

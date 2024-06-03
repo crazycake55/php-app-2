@@ -21,6 +21,7 @@
         .content-container {
             display: grid;
             grid-template-areas:
+                'header header'
                 'form1 form2';
             grid-template-columns: 1fr 1fr;
             gap: 20px;
@@ -28,10 +29,16 @@
             align-items: start;
         }
 
+        .form-btn {
+            background-color: #09edc3;
+            border-radius: 10px;
+        }
+
         @media (orientation: portrait){
             .content-container{
                 display: grid;
                 grid-template-areas:
+                    'header'
                     'form1'
                     'form2';
                 grid-template-columns: 1fr;
@@ -72,31 +79,36 @@
 
 @section('content')
     <div class="content-container">
+        <div style="text-align: center; background-color: rgb(229, 251, 251); grid-area: header; border-radius: 25px; padding: 5px;">
+            <h3>Категорії</h3>
+        </div>
         <div class="form-container" style="grid-area: 'form1'">
-            <div class="form-title">Форма 1</div>
+            <div class="form-title">Косплей</div>
             <form action="{{route('submit-form1')}}" method="POST">
                 @csrf
-                <label for="option1">Выберите вариант:</label>
+                <label for="option1">Виберіть учасника:</label>
                     <select name="option1">
                         @foreach($participants as $participant)
                             <option value="{{ $participant->id }}">{{ $participant->name }}</option>
                         @endforeach
                     </select>
-                <button type="submit">Отправить</button>
+                <p></p>
+                <button type="submit" class="form-btn">Проголосувати</button>
             </form>
         </div>
 
         <div class="form-container">
-            <div class="form-title">Форма 2</div>
+            <div class="form-title">Кавер-денс</div>
             <form action="{{route('submit-form2')}}" method="POST">
                 @csrf
-                <label for="option2">Выберите вариант:</label>
+                <label for="option2">Вибрати гурт:</label>
                     <select name="option2">
                         @foreach($participantskpop as $participantkpop)
                             <option value="{{ $participantkpop->id }}">{{ $participantkpop->name }}</option>
                         @endforeach
                     </select>
-                <button type="submit">Отправить</button>
+                <p></p>
+                <button type="submit" class="form-btn">Проголосувати</button>
             </form>
         </div>
     </div>

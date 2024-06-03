@@ -53,11 +53,12 @@
         }
 
         .menu-button {
-            background-color: #007bff;
             color: #fff;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
+            background-color: #09edc3;
+            border-radius: 10px;
         }
 
         .menu-items {
@@ -129,13 +130,14 @@
 
 <body>
     <div class="fullscreen-message">
-        Поверните устройство в альбомную ориентацию для продолжения.
+        Змініть орієнтацію екрану на альбомну.
     </div>
     <div class="header-container">
         <div class="menu-container">
             <button class="menu-button">Меню</button>
             <div class="menu-items">
                 <button class="close-button">✖</button>
+                <p></p>
                 <nav>
                     <ul>
                         <li><a href="{{ route('main') }}">Головна</a></li>
