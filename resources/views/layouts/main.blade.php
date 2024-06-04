@@ -3,6 +3,8 @@
 <head>
     <title>Amai party</title>
     @yield('styles')
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
     <style>
         .header {
             background-color: rgb(229, 251, 251);
@@ -23,7 +25,6 @@
         }
 
         .container-main{
-            /* background-color: rgb(229, 251, 251); */
             border: 4px solid #00ddc0;
             border-radius: 25px;
             padding: 20px;
@@ -59,6 +60,7 @@
             cursor: pointer;
             background-color: #09edc3;
             border-radius: 10px;
+            font-family: 'Oswald', sans-serif;
         }
 
         .menu-items {
@@ -118,19 +120,44 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(0, 0, 0, 0.8);
-                color: white;
                 font-size: 3rem;
                 text-align: center;
                 z-index: 1000;
+                background-image: url('https://ih0.redbubble.net/image.1762061035.8038/raf,360x360,075,t,fafafa:ca443f4786.jpg');
+                background-repeat: repeat;
+                animation: movePattern 200s linear infinite;
             }
+        }
+
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: -300px;
+            width: 250px;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.5s ease, opacity 0.5s ease;
+            z-index: 1000;
+        }
+
+        .success-message.show {
+            right: 20px;
+        }
+
+        .success-message.hide {
+            opacity: 0;
         }
     </style>
 </head>
 
-<body>
+<body style="font-family: 'Oswald', sans-serif;">
     <div class="fullscreen-message">
-        Змініть орієнтацію екрану на альбомну.
+        <p style="text-align: center; background-color: rgb(229, 251, 251); border: 4px solid #00ddc0; border-radius: 25px; padding: 5px; margin-left: 20px; margin-right: 20px;">
+            Будь ласка, змініть орієнтацію екрану на альбомну.
+        </p>
     </div>
     <div class="header-container">
         <div class="menu-container">
@@ -150,7 +177,7 @@
     </div>
 
     @if (session()->has('success'))
-        <div>
+        <div class="success-message">
             {{ session('success') }}
         </div>
     @endif
@@ -169,6 +196,21 @@
             closeButton.addEventListener('click', function() {
                 menu.classList.remove('show');
             });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var successMessage = document.querySelector('.success-message');
+            if (successMessage) {
+                successMessage.classList.add('show');
+
+                setTimeout(function() {
+                    successMessage.classList.add('hide');
+                }, 3000);
+
+                setTimeout(function() {
+                    successMessage.classList.remove('show');
+                }, 3500);
+            }
         });
     </script>
 
