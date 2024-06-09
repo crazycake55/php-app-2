@@ -95,7 +95,7 @@
                 <p></p>
                 <button type="submit" class="form-btn">Проголосувати</button>
             </form>
-            <p id="vote1Result" style="display:none;">Вы проголосовали за: <span id="vote1Name"></span></p>
+            <p id="vote1Result" style="display:none;">Ви проголосували за: <span id="vote1Name"></span></p>
         </div>
 
         <div class="form-container">
@@ -111,7 +111,7 @@
                 <p></p>
                 <button type="submit" class="form-btn">Проголосувати</button>
             </form>
-            <p id="vote2Result" style="display:none;">Вы проголосовали за: <span id="vote2Name"></span></p>
+            <p id="vote2Result" style="display:none;">Ви проголосували за: <span id="vote2Name"></span></p>
         </div>
     </div>
 
