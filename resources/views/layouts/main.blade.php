@@ -20,7 +20,7 @@
             display: grid;
             grid-template-areas:
             'button text' ;
-            grid-template-columns: 7% 93%;
+            grid-template-columns: 5% 95%;
             align-items: center;
         }
 
