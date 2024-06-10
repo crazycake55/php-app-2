@@ -169,6 +169,7 @@
                     <ul>
                         <li><a href="{{ route('main') }}">Головна</a></li>
                         <li><a href="{{ route('voting') }}">Голосування</a></li>
+                        <li><a href="{{ route('top') }}">ТОП</a></li>
                     </ul>
                 </nav>
             </div>
@@ -213,6 +214,8 @@
             }
         });
     </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
 
     <div class="container-main">

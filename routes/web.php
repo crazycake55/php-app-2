@@ -15,6 +15,12 @@ Route::get('/voting', function () {
     return view('voting', ['participants' => $participants, 'participantskpop'=> $participantskpop]);
 })->name('voting');
 
+Route::get('/top', function () {
+    $participants = Participant::orderBy('votes', 'desc')->get();
+    $participantskpop = ParticipantKpop::orderBy('votes', 'desc')->get();
+    return view('top', ['participants' => $participants, 'participantskpop'=> $participantskpop]);
+})->name('top');
+
 Route::post('/submit-form1', function (Request $request) {
     $participantId = $request->input('option1');
     $participant = Participant::find($participantId);
